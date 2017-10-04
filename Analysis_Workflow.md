@@ -51,3 +51,15 @@ Check the results
 cd /gpfs/work/uMI17_MedVaP/LiverObeseRNASeq/Analisi/RNAseq_metrics_picard
 cat <(grep PF R100.HQ.RNAmetrics) <(grep "PF" -A 1 *RNAmetrics | sed '/PF_BA/d;/--/d') | column -t | less -S
 ```
+
+# PCSK7
+
+Follow the protocol from this article:
+
+[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631051/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631051/)
+
+See protocol 7:
+
+```
+Alternate Protocol 7: Mapping RNA-seq reads, generating output in transcriptomic coordinates and using RSEM to quantify expression of transcripts and genes
+```
