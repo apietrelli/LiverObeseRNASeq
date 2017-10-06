@@ -52,6 +52,19 @@ cd /gpfs/work/uMI17_MedVaP/LiverObeseRNASeq/Analisi/RNAseq_metrics_picard
 cat <(grep PF R100.HQ.RNAmetrics) <(grep "PF" -A 1 *RNAmetrics | sed '/PF_BA/d;/--/d') | column -t | less -S
 ```
 
+## Differential expression
+
+### Selecting only Protein Coding genes
+```R
+g=readGFF("Data/Homo_sapiens.GRCh37.75.gtf")
+primary_genes = g %>%
+    filter(type=="gene") %>%
+    filter(source == "protein_coding") %>%
+    filter(seqid %in% c(seq(1:22),"X","Y")) %>%
+    select("gene_id")
+saveRDS(primary_genes, "../Data/Homo_sapiens.GRCh37.75.PrimaryProteinCodingGenes.rds")
+```
+
 # PCSK7
 
 Follow the protocol from this article:
